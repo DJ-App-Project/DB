@@ -1,0 +1,25 @@
+CREATE TABLE Role (
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Description TEXT
+);
+
+CREATE TABLE Permission (
+    ID SERIAL PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Description TEXT
+);
+
+CREATE TABLE UserRole (
+    UserID INT NOT NULL,
+    RoleID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES User(ID),
+    FOREIGN KEY (RoleID) REFERENCES Role(ID)
+);
+
+CREATE TABLE RolePermission (
+    RoleID INT NOT NULL,
+    PermissionID INT NOT NULL,
+    FOREIGN KEY (RoleID) REFERENCES Role(ID),
+    FOREIGN KEY (PermissionID) REFERENCES Permission(ID)
+);
