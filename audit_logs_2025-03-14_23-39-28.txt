@@ -1,0 +1,15 @@
+
+[2025-03-14 23:39:28] Collection: DJEvent | Operation: insert
+Inserted Document: {'_id': ObjectId('67d4703b722c503a30c69ffa'), 'ID': None, 'DJID': '67d19c50f64702d730b8f6ad', 'QRCode': None, 'Name': 'testni dogodek 1', 'Description': 'test ce dela api call', 'Date': datetime.datetime(2025, 3, 17, 19, 0), 'Location': 'Maribor', 'Active': True, 'MusicConfig': {'MusicPlaylist': [], 'EnableUserRecommendation': False}}
+
+[2025-03-14 23:39:28] Collection: GuestUser | Operation: insert
+Inserted Document: {'_id': ObjectId('67d35765d34918a64746e9d1'), 'ID': 0, 'Name': 'string', 'Username': 'string', 'Email': 'string', 'CreatedAt': datetime.datetime(2025, 3, 13, 22, 8, 37, 641000), 'UpdatedAt': datetime.datetime(1, 1, 1, 0, 0)}
+
+[2025-03-14 23:39:28] Collection: Playlist | Operation: insert
+Inserted Document: {'_id': ObjectId('67d19c50f64702d730b8f7d9'), 'ID': '100', 'UserID': '38', 'MusicList': ['Plan.', 'First.', 'Job represent.']}
+
+[2025-03-14 23:39:28] Collection: Songs | Operation: insert
+Inserted Document: {'_id': ObjectId('67d1e6a76a947d7c54ed36a3'), 'ID': 100, 'Name': 'Law little', 'Artist': 'Lisa Harris', 'Genre': 'Rock'}
+
+[2025-03-14 23:39:28] Collection: User | Operation: insert
+Inserted Document: {'_id': ObjectId('67d36ec20d4efa725e8d6acd'), 'ID': 0, 'Name': 'test5', 'FamilyName': 'test5', 'ImageUrl': 'test5', 'Username': 'test5', 'Email': 'test5', 'Password': '$2a$11$7h35Y.niBllRuRHorr63GO/Qd4V436RgNFV174oHcWifhOIc5atJa', 'CreatedAt': datetime.datetime(2025, 3, 13, 23, 48, 18, 67000), 'UpdatedAt': datetime.datetime(1, 1, 1, 0, 0)}
