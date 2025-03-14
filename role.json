@@ -1,0 +1,14 @@
+[
+    {
+        "_id": "60d5ec49f8d2f5a5d8b5b5b5",
+        "name": "admin",
+        "description": "Administrator role",
+        "permissions": ["create_user", "delete_user"]
+    },
+    {
+        "_id": "60d5ec49f8d2f5a5d8b5b5b6",
+        "name": "user",
+        "description": "User role",
+        "permissions": ["view_content"]
+    }
+]

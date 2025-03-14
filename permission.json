@@ -1,0 +1,17 @@
+[
+    {
+        "_id": "60d5ec49f8d2f5a5d8b5b5b7",
+        "name": "create_user",
+        "description": "Permission to create a user"
+    },
+    {
+        "_id": "60d5ec49f8d2f5a5d8b5b5b8",
+        "name": "delete_user",
+        "description": "Permission to delete a user"
+    },
+    {
+        "_id": "60d5ec49f8d2f5a5d8b5b5b9",
+        "name": "view_content",
+        "description": "Permission to view content"
+    }
+]

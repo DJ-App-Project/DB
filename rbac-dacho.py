@@ -2,8 +2,8 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 # Povezava na MongoDB
-client = MongoClient("mongodb://localhost:27017/")
-db = client["rbac_db"]
+client = MongoClient("mongodb://djadmin:DJsuggester2025!@mongodbitk.duckdns.org:27017/")
+db = client["DJSuggestionsDB"]
 
 class Role:
     def __init__(self, name, description=""):
@@ -52,24 +52,43 @@ class User:
         }
         db.users.insert_one(user_data)
 
-# Definirajte vloge in dovoljenja
-admin_role = Role("admin", "Administrator role")
-admin_role.add_permission("create_user")
-admin_role.add_permission("delete_user")
-admin_role.save_to_db()
+# Inicializacija podatkov
+def initialize_data():
+    # Ustvarjanje vlog
+    roles = [
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5b5"), "name": "admin", "description": "Administrator role", "permissions": ["create_user", "delete_user"]},
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5b6"), "name": "user", "description": "User role", "permissions": ["view_content"]}
+    ]
+    db.roles.insert_many(roles)
 
-user_role = Role("user", "User role")
-user_role.add_permission("view_content")
-user_role.save_to_db()
+    # Ustvarjanje dovoljenj
+    permissions = [
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5b7"), "name": "create_user", "description": "Permission to create a user"},
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5b8"), "name": "delete_user", "description": "Permission to delete a user"},
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5b9"), "name": "view_content", "description": "Permission to view content"}
+    ]
+    db.permissions.insert_many(permissions)
 
-# Ustvarite uporabnike in jim dodelite vloge
-admin = User("admin_user")
-admin.add_role(admin_role)
-admin.save_to_db()
+    # Povezovanje dovoljenj z vlogami
+    role_permissions = [
+        {"roleId": ObjectId("60d5ec49f8d2f5a5d8b5b5b5"), "permissionId": ObjectId("60d5ec49f8d2f5a5d8b5b5b7")},
+        {"roleId": ObjectId("60d5ec49f8d2f5a5d8b5b5b5"), "permissionId": ObjectId("60d5ec49f8d2f5a5d8b5b5b8")},
+        {"roleId": ObjectId("60d5ec49f8d2f5a5d8b5b5b6"), "permissionId": ObjectId("60d5ec49f8d2f5a5d8b5b5b9")}
+    ]
+    db.role_permissions.insert_many(role_permissions)
 
-regular_user = User("regular_user")
-regular_user.add_role(user_role)
-regular_user.save_to_db()
+    # Ustvarjanje uporabnikov in dodeljevanje vlog
+    users = [
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5ba"), "username": "admin_user", "roles": ["admin"]},
+        {"_id": ObjectId("60d5ec49f8d2f5a5d8b5b5bb"), "username": "regular_user", "roles": ["user"]}
+    ]
+    db.users.insert_many(users)
+
+    user_roles = [
+        {"userId": ObjectId("60d5ec49f8d2f5a5d8b5b5ba"), "roleId": ObjectId("60d5ec49f8d2f5a5d8b5b5b5")},
+        {"userId": ObjectId("60d5ec49f8d2f5a5d8b5b5bb"), "roleId": ObjectId("60d5ec49f8d2f5a5d8b5b5b6")}
+    ]
+    db.user_roles.insert_many(user_roles)
 
 # Preverite dovoljenja pred izvajanjem akcij
 def has_permission(user_id, permission_name):
@@ -101,6 +120,9 @@ def view_content(user_id):
         print(f"User with ID {user_id} can view content.")
     else:
         print(f"User with ID {user_id} cannot view content.")
+
+# Inicializacija podatkov
+initialize_data()
 
 # Primer uporabe
 admin_id = db.users.find_one({"username": "admin_user"})["_id"]
