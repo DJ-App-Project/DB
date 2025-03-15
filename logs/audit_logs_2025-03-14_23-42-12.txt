@@ -1,0 +1,3 @@
+
+[2025-03-14 23:42:12] Collection: DJEvent | Operation: insert
+Inserted Document: {'_id': ObjectId('67d4703b722c503a30c69ffa'), 'ID': None, 'DJID': '67d19c50f64702d730b8f6ad', 'QRCode': None, 'Name': 'testni dogodek 1', 'Description': 'test ce dela api call', 'Date': datetime.datetime(2025, 3, 17, 19, 0), 'Location': 'Maribor', 'Active': True, 'MusicConfig': {'MusicPlaylist': [], 'EnableUserRecommendation': False}}
