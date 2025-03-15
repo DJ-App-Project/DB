@@ -1,0 +1,17 @@
+Title,Body,Priority,Status,Size
+Strateško načrtovanje in arhitektura podatkov,"Določanje podatkovne strategije podjetja (struktura, skladiščenje, dostopnost, varnost). Načrtovanje in upravljanje podatkovnih modelov ter arhitektur (SQL, NoSQL, DGraph, MongoDB). Optimizacija podatkovnih baz za zmogljivost in skalabilnost.",Urgent,Todo,Large
+Upravljanje in varnost podatkov,"Vzpostavitev in nadzor varnostnih politik za baze podatkov (šifriranje, dostopne pravice, backup). Zagotavljanje skladnosti z zakonodajo o varstvu podatkov (GDPR, HIPAA, …).",High,Todo,Medium
+Vodenje ekipe in sodelovanje,"Usmerjanje in mentorstvo razvijalcem in administratorjem podatkovnih baz. Sodelovanje z drugimi oddelki (razvoj, DevOps, BI, vodstvo) pri podatkovnih rešitvah.",Medium,Todo,Small
+Optimizacija delovanja podatkovnih baz,Spremljanje delovanja podatkovnih baz in reševanje ozkih grl.,High,Todo,Medium
+Design in gradnja podatkovne baze,"Design arhitekture podatkoven baze, ER diagram, izgradnja podatkovne baze.",Urgent,Todo,Large
+Testiranje podatkovne baze,"Vnos testnih podatkov, testiranje podatkov z testnimi queryji, popravki pred finalno izgradnjo.",High,Todo,Medium
+Vzdrževanje in nadgradnja baze,"Spremljanje delovanja baze, nadgradnja glede na potrebe in povratne informacije.",Medium,Todo,Small
+Upravljanje podatkovnega skladišča,"Načrtovanje shranjevanja podatkov, določitev skladišča za varnostne kopije in integracija z obstoječimi sistemi.",High,Todo,Medium
+ETL procesi,Razvoj in optimizacija ETL pipelines.,Urgent,Todo,Large
+Skalabilnost in infrastruktura,"Spremljanje zmogljivosti baze, preverjanje potreb po dodatnih resursih.",High,Todo,Medium
+Poročilo o uporabniški aktivnosti,Priprava poizvedb v MongoDB za analizo uporabniških vzorcev.,Medium,Todo,Small
+Analiza podatkov o predvajanju glasbe,"Priprava statistike predvajanja glasbe, preverjanje shranjevanja podatkov, izdelava grafičnih poročil.",High,Todo,Medium
+Analiza učinkovitosti glasovanja in nagrajevanja,MongoDB poizvedbe za analizo vpliva sistema nagrajevanja na uporabnike.,High,Todo,Medium
+Implementacija RBAC,"Določitev vlog (admin, developer, analyst, user), nastavitev privilegijev, testiranje dostopa.",Urgent,Todo,Large
+Šifriranje podatkov,"Uporaba TDE, SSL/TLS za povezave, hash funkcije za gesla.",High,Todo,Medium
+Nastavitev varnostnih politik,"Database Auditing, alert sistemi, penetration test baze.",High,Todo,Medium
