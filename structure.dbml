@@ -1,0 +1,83 @@
+Table User {
+  ID            string [PK]
+  Name          string
+  FamilyName  	string
+	ImageUrl     	string
+	Username    	string
+	Email       	string
+	Password    	string
+  RoleIDs       string[]
+  Permissions   int[]
+	CreatedAt   	dateTime
+	UpdatedAt   	dateTime
+	DeletedAt   	dateTime
+}
+
+Table Role {
+  ID            string [PK]
+  Name          string
+  Description   string
+  Permissions   int[]
+}
+
+Table GuestUser {
+  ID         	  string [PK]
+	Name        	string
+	Username    	string
+  Email       	string
+  CreatedAt   	dateTime
+  UpdatedAt   	dateTime
+	DeletedAt   	dateTime
+}
+
+Table DJEvent {
+  ID         	string [PK]
+	DJID		    string
+  Name        string
+  Description string
+  Date        dateTime
+  Location    string
+  Active      bool
+	QRCode      string
+  MusicConfig MusicConfig
+}
+
+Table MusicConfig {
+  MusicPlayList               Music[]
+  EnableUserRecommendation		bool
+}
+
+Table Music {
+      MusicName             string
+      MusicArtist           string
+      MusicGenre            string
+			Visible		            bool
+			Votes		              int
+			VotersIDs	            string[]
+			IsUserRecommentaion 	bool
+			RecommenderID 		    string
+}
+
+Table Playlist {
+  ID         	string [PK]
+  UserID		  string
+	MusicList 	string[]
+
+}
+
+Table Songs {
+  ID         	string [PK]
+  Name		    string
+	Artist 	    string
+  Genre       string
+}
+
+Ref embedded: DJEvent.MusicConfig > MusicConfig.MusicPlayList
+Ref embedded: MusicConfig.MusicPlayList > Music.MusicName
+Ref: DJEvent.DJID > User.ID
+Ref: Music.VotersIDs > User.ID
+Ref: Music.VotersIDs > GuestUser.ID
+Ref: Music.RecommenderID > User.ID
+Ref: Music.RecommenderID > GuestUser.ID
+Ref: Playlist.UserID > User.ID
+Ref embeded: User.RoleIDs > Role.ID
